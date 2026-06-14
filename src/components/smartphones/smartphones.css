@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+.container{
+  width: 80%;
+  justify-self: center;
+}
+.header{
+  margin-top: 40px;
+  margin-bottom: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+.smart{
+  color: black;
+}
+.cat{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cat-2{
+  color: #A4A4A4;
+}
+.cat-3{
+  color: black;
+}
+.phone-products{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 50px;
+  width: 100%;
+}
+.card {
+  width: 220px;
+  height: 370px;
+  background-color: #F6F6F6;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 150px auto auto auto 60px;
+  justify-items: center;
+  padding: 15px;
+}
+.card-img {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+}
+.card-title {
+  font-family: "Baloo Bhai 2", sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  text-align: center;
+}
+.card p {
+  margin-bottom: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+.card-btn {
+  width: 100%;
+  height: 45px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}               
+.selected{
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.selec-right{
+display: flex;
+gap: 10px;  
+align-items: center;
+}
+.grey-sel{
+  font-family: "Baloo Bhai 2", sans-serif;
+  color: #A4A4A4;
+}
+.sel-num{
+  color: black;
+  font-family: "Baloo Bhai 2", sans-serif;
+  font-size: 20px;
+
+}
+.sel-opt{
+  border: 1px solid grey;
+  width: 140px;
+  height: 30px;
+  border-radius: 5px;
+}

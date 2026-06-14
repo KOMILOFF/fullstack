@@ -1,0 +1,509 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+.banner {
+  height: 580px;
+  background-color: #211C24;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.banner-title h1 {
+  color: white;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 20px;
+  font-size: 45px;
+}
+
+.banner-title p {
+  color: #909090;
+  margin-bottom: 20px;
+}
+
+.banner-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+}
+
+.banner-dis {
+  font-family: "Baloo Bhai 2", sans-serif;
+}
+
+.banner-btn {
+  padding: 13px 60px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 5px;
+}
+
+.banner-img {
+  height: 575px;
+}
+
+.devices {
+  display: flex;
+  width: 100%;
+  gap: 0;
+  height: 680px;
+
+}
+
+.playstation {
+  grid-column: 1 / 3;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  height: 350px;
+}
+
+.playstation h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 27px;
+  margin-bottom: 30px;
+}
+
+.playstation p {
+  color: #909090;
+}
+
+.airpods,
+.apple-vis {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  height: 250px;
+}
+
+.airpods {
+  background-color: #EDEDED;
+}
+
+.air-image {
+  height: 220px;
+}
+
+.apple-vis {
+  background-color: #353535;
+}
+
+.airpods p,
+.vis-title p {
+  color: #909090;
+}
+
+.dop,
+.air-nam {
+  font-family: "Baloo Bhai 2", sans-serif;
+  font-weight: 100;
+  font-size: 30px;
+}
+
+.airMax {
+  font-size: 30px;
+  font-family: "Baloo Bhai 2", sans-serif;
+}
+
+.vis-nam {
+  font-family: "Baloo Bhai 2", sans-serif;
+  color: white;
+  font-size: 30px;
+  font-weight: 100;
+}
+
+.vis-pro {
+  font-family: "Baloo Bhai 2", sans-serif;
+  color: white;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.left {
+  gap: 0;
+  padding: 0;
+  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50% 25%;
+}
+
+.macBook {
+  width: 50%;
+  height: 590px;
+  display: flex;
+  align-items: center;
+  background-color: #EDEDED;
+
+}
+
+.mac-title {
+  margin-left: 40px;
+}
+
+.mac-name {
+  font-family: "Baloo Bhai 2", sans-serif;
+  font-weight: 100;
+  font-size: 35px;
+}
+
+.mak-pos {
+  font-family: "Rubik", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.mac-title p {
+  color: #909090;
+  margin-bottom: 15px;
+}
+
+.MacBtn {
+  padding: 13px 60px;
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+  border-radius: 5px;
+}
+
+.category {
+  height: 300px;
+  justify-self: center;
+}
+
+.cate-nam {
+  font-family: "Baloo Bhai 2", sans-serif;
+  font-size: 20px;
+}
+
+.cate-icon {
+  font-size: 25px;
+}
+
+.cate-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.sections {
+  display: flex;
+  gap: 30px;
+  justify-content: space-evenly;
+}
+
+.sect-icon {
+  font-size: 25px;
+}
+
+.sections div {
+  transition: all 0.6s;
+  cursor: pointer;
+  width: 150px;
+  height: 130px;
+  background-color: #EDEDED;
+  border-radius: 10px;
+  justify-items: center;
+  align-content: center;
+}
+
+
+.new-sections {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 25px;
+  margin: 40px 0 20px 0;
+  font-size: 20px;
+  padding-left: 15px;
+}
+
+
+.arrival {
+  font-family: "Baloo Bhai 2", sans-serif;
+  color: black;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.bestseller,
+.prod {
+  color: #909090;
+  font-family: "Baloo Bhai 2", sans-serif;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 50px;
+  width: 100%;
+}
+
+
+.container {
+  justify-self: center;
+  margin-bottom: 40px;
+}
+
+.card {
+  width: 220px;
+  height: 370px;
+  background-color: #F6F6F6;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 150px auto auto auto 60px;
+  justify-items: center;
+  padding: 15px;
+}
+
+.card-img {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+}
+
+
+.card-title {
+  font-family: "Baloo Bhai 2", sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  text-align: center;
+}
+
+.card p {
+  margin-bottom: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.card-btn {
+  width: 100%;
+  height: 45px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popular {
+  display: flex;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.mix-prod,
+.ipad-pro,
+.foldable,
+.mac-bro {
+  display: grid;
+  grid-template-rows: 310px 20px 20px 40px;
+  grid-template-columns: 1fr;
+  gap: 55px;
+  justify-items: center;
+  align-items: center;
+  width: 25%;
+  height: 500px;
+  background-color: #FFFFFF;
+}
+
+.ipad-pro {
+  background-color: #F9F9F9;
+}
+
+.foldable {
+  background-color: #EAEAEA;
+}
+
+.mac-bro {
+  background-color: #2C2C2C;
+}
+
+.mix-image,
+.ipad-pict,
+.foldable-img,
+.mac-bro-img {
+  width: 300px;
+  height: 300px;
+  background-color: transparent;
+}
+
+.mix-title,
+.ipad-pro-title,
+.foldable-title,
+.mac-bro-title {
+  font-family: "Baloo Bhai 2", sans-serif;
+  font-weight: 100;
+  font-size: 30px;
+}
+
+.mix-desc,
+.ipad-desc,
+.foldable-desc,
+.mac-bro-desc {
+  color: #909090;
+  margin-left: 20px;
+}
+
+.mix-btn,
+.ipad-pro-btn,
+.foldable-btn,
+.mac-btn {
+  border: 1px solid #000000;
+  border-radius: 5px;
+  height: 40px;
+  width: 60%;
+  justify-items: center;
+  justify-self: flex-start;
+  margin-left: 20px;
+  background-color: white;
+
+}
+
+.ipad-row {
+  background-color: #F9F9F9;
+  border: 15px solid #F9F9F9;
+}
+
+.foldablebtn-div {
+  border: 20px solid #EAEAEA;
+  background-color: #EAEAEA;
+}
+
+.macbro-div {
+  background-color: #2C2C2C;
+  border: 15px solid #2C2C2C;
+}
+
+.ipad-row,
+.foldablebtn-div,
+.macbro-div {
+  width: 100%;
+  display: flex;
+}
+
+.big {
+  display: flex;
+  width: 100%;
+  height: 400px;
+  background-color: #2C2C2C;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.play-left-img {
+  width: 320px;
+}
+
+.right-mac-image {
+  width: 200px;
+}
+
+.main-title {
+  font-size: 50px;
+  font-weight: 100;
+  font-family: "Baloo Bhai 2", sans-serif;
+  color: white;
+  justify-self: center;
+}
+
+.main-big {
+  font-family: "Baloo Bhai 2", sans-serif;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+  place-content: center;
+}
+
+.main-desc {
+  color: #909090;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.main-btn {
+  width: 150px;
+  height: 40px;
+  justify-self: center;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  border-radius: 5px;
+}
+
+.main-sale {
+  font-weight: 900;
+}
+
+.site-footer {
+  width: 100%;
+  height: 400px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-div {
+  width: 80%;
+  height: 300px;
+  background-color: black;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  align-items: start;
+
+}
+
+.foot-first,
+.foot-second {
+  display: grid;
+  gap: 25px;
+  align-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+
+}
+
+.foot-third {
+  display: grid;
+  gap: 25px;
+  align-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+}
+
+.foot-first p,
+.second-opt,
+.third-opt {
+  color: #909090;
+  font-family: "Baloo Bhai 2", sans-serif;
+  font-weight: 100;
+}
+
+.first-title,
+.second-title,
+.third-title {
+  font-family: "Baloo Bhai 2", sans-serif;
+  font-weight: 500;
+  color: white;
+  font-size: 20px;
+}
+
+.sections div:hover {
+  width: 170px;
+  height: 150px;
+  box-shadow: 0 15px 30px grey;
+}

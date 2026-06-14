@@ -1,0 +1,53 @@
+.site-footer{
+  width: 100%;
+  height: 400px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-div{
+  width: 80%;
+  height: 300px;
+  background-color: black;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  align-items: start;
+
+}
+.foot-first ,
+.foot-second {
+  display: grid;
+  gap: 25px;
+  align-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto ;
+
+}
+.foot-third{
+  display: grid;
+  gap: 25px;
+  align-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto ;
+}
+
+.foot-first p ,
+.second-opt ,
+.third-opt{
+  color: #909090;
+  font-family: "Baloo Bhai 2", sans-serif;
+  font-weight: 100;
+}
+
+.first-title ,
+.second-title ,
+.third-title{
+  font-family: "Baloo Bhai 2", sans-serif;
+  font-weight: 500;
+  color: white;
+  font-size: 20px;
+}
