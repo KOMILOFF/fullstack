@@ -5,7 +5,7 @@ import Navbar from "./pages/Navbar";
 import Home from "./components/home/Home";
 import Profile from "./pages/Profile";
 import Login from "./components/login/Login";
-import Smartphones from "./components/Smartphones/Smartphones";
+import Smartphones from "./components/smartphones/Smartphones";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 
@@ -17,11 +17,14 @@ function App() {
   const location = useLocation();
   const userId = localStorage.getItem("userId");
 
+  // .env fayldagi Render linkini olish (agar u topilmasa, vaqtincha localhost ishlaydi)
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
+
   useEffect(() => {
     const fetchCart = async () => {
       if (signet && userId) {
         try {
-          const res = await axios.get(`http://localhost:4000/api/cart?userId=${userId}`);
+          const res = await axios.get(`${API_URL}/api/cart?userId=${userId}`);
           setCart(res.data);
         } catch (err) {
           console.error("Savatni yuklashda xatolik:", err);
@@ -29,18 +32,18 @@ function App() {
       }
     };
     fetchCart();
-  }, [signet, userId]);
+  }, [signet, userId, API_URL]);
 
   const addToCart = async (item) => {
     if (!userId) return;
     try {
-      await axios.post("http://localhost:4000/api/cart", {
+      await axios.post(`${API_URL}/api/cart`, {
         userId: Number(userId),
         smartphoneId: item.id,
         qty: 1
       });
       
-      const res = await axios.get(`http://localhost:4000/api/cart?userId=${userId}`);
+      const res = await axios.get(`${API_URL}/api/cart?userId=${userId}`);
       setCart(res.data);
     } catch (err) {
       console.error("Savatga qo'shishda xatolik:", err);
@@ -51,10 +54,10 @@ function App() {
     const delayDebounceFn = setTimeout(async () => {
       try {
         if (searchInput.trim() !== "") {
-          const res = await axios.get(`http://localhost:4000/api/search?name=${searchInput}`);
+          const res = await axios.get(`${API_URL}/api/search?name=${searchInput}`);
           setHomeProducts(res.data);
         } else {
-          const res = await axios.get("http://localhost:4000/api/smartphones");
+          const res = await axios.get(`${API_URL}/api/smartphones`);
           setHomeProducts(res.data);
         }
       } catch (err) {
@@ -63,7 +66,7 @@ function App() {
     }, 400);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [searchInput]);
+  }, [searchInput, API_URL]);
 
   return (
     <div>
