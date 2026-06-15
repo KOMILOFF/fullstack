@@ -1,18 +1,17 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  list-style: none;
+.home-page-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow-x: hidden; /* 🚀 Sahifa yonga qarab qimirlab ketmasligi uchun */
 }
 
 .banner {
-  height: 580px;
+  height: 500px;
   background-color: #211C24;
   display: flex;
   align-items: center;
   justify-content: space-around;
-
+  padding: 0 40px;
 }
 
 .banner-title h1 {
@@ -42,468 +41,347 @@
   border: 1px solid white;
   color: white;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .banner-img {
-  height: 575px;
+  height: 100%;
+  object-fit: contain;
 }
 
 .devices {
   display: flex;
   width: 100%;
-  gap: 0;
-  height: 680px;
-
+  height: auto;
 }
 
+.left {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* 🚀 Playstation divi boshqaruvga olindi */
 .playstation {
   grid-column: 1 / 3;
   display: flex;
   align-items: center;
+  gap: 20px;
   background-color: white;
-  height: 350px;
+  padding: 30px;
+}
+
+.playstation img {
+  width: 40%;
+  max-width: 200px;
+  object-fit: contain;
+}
+
+.plays-title {
+  width: 60%;
 }
 
 .playstation h2 {
   font-family: 'Inter', sans-serif;
   font-size: 27px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .playstation p {
   color: #909090;
 }
 
-.airpods,
-.apple-vis {
+.airpods, .apple-vis {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  gap: 20px;
-  height: 250px;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
 }
 
-.airpods {
-  background-color: #EDEDED;
-}
+.airpods { background-color: #EDEDED; }
+.air-image { height: 140px; object-fit: contain; }
+.apple-vis { background-color: #353535; }
 
-.air-image {
-  height: 220px;
-}
-
-.apple-vis {
-  background-color: #353535;
-}
-
-.airpods p,
-.vis-title p {
-  color: #909090;
-}
-
-.dop,
-.air-nam {
+.airpods p, .vis-title p { color: #909090; font-size: 13px; }
+.dop, .air-nam, .airMax, .vis-nam, .vis-pro {
   font-family: "Baloo Bhai 2", sans-serif;
-  font-weight: 100;
-  font-size: 30px;
+  font-size: 22px;
 }
-
-.airMax {
-  font-size: 30px;
-  font-family: "Baloo Bhai 2", sans-serif;
-}
-
-.vis-nam {
-  font-family: "Baloo Bhai 2", sans-serif;
-  color: white;
-  font-size: 30px;
-  font-weight: 100;
-}
-
-.vis-pro {
-  font-family: "Baloo Bhai 2", sans-serif;
-  color: white;
-  font-size: 30px;
-  font-weight: 400;
-}
-
-.left {
-  gap: 0;
-  padding: 0;
-  width: 50%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 50% 25%;
-}
+.vis-nam, .vis-pro { color: white; }
 
 .macBook {
   width: 50%;
-  height: 590px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: #EDEDED;
-
+  padding: 40px;
 }
 
-.mac-title {
-  margin-left: 40px;
+.macBook img {
+  width: 50%;
+  object-fit: contain;
 }
 
-.mac-name {
-  font-family: "Baloo Bhai 2", sans-serif;
-  font-weight: 100;
-  font-size: 35px;
-}
+.mac-name { font-family: "Baloo Bhai 2", sans-serif; font-size: 28px; }
+.mak-pos { font-family: "Rubik", sans-serif; font-size: 32px; font-weight: 500; margin-bottom: 15px; }
+.mac-title p { color: #909090; margin-bottom: 15px; }
+.MacBtn { padding: 13px 40px; background-color: transparent; border: 1px solid black; border-radius: 5px; cursor: pointer; }
 
-.mak-pos {
-  font-family: "Rubik", sans-serif;
-  font-size: 40px;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-
-.mac-title p {
-  color: #909090;
-  margin-bottom: 15px;
-}
-
-.MacBtn {
-  padding: 13px 60px;
-  background-color: transparent;
-  border: 1px solid black;
-  color: black;
-  border-radius: 5px;
+.container {
+  width: 90%;
+  margin: 50px auto;
 }
 
 .category {
-  height: 300px;
-  justify-self: center;
-}
-
-.cate-nam {
-  font-family: "Baloo Bhai 2", sans-serif;
-  font-size: 20px;
-}
-
-.cate-icon {
-  font-size: 25px;
-}
-
-.cate-title {
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 40px;
 }
 
-.sections {
-  display: flex;
-  gap: 30px;
-  justify-content: space-evenly;
-}
+.cate-nam { font-family: "Baloo Bhai 2", sans-serif; font-size: 22px; font-weight: bold; }
+.cate-title { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
 
-.sect-icon {
-  font-size: 25px;
+.sections {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
 }
 
 .sections div {
-  transition: all 0.6s;
+  transition: all 0.3s ease;
   cursor: pointer;
-  width: 150px;
-  height: 130px;
+  height: 120px;
   background-color: #EDEDED;
   border-radius: 10px;
-  justify-items: center;
-  align-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
+.sections div:hover {
+  background-color: #fff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
 
 .new-sections {
-  width: 100%;
   display: flex;
-  justify-content: flex-start;
   gap: 25px;
   margin: 40px 0 20px 0;
   font-size: 20px;
-  padding-left: 15px;
 }
 
-
-.arrival {
-  font-family: "Baloo Bhai 2", sans-serif;
-  color: black;
-  text-decoration: underline;
-  font-weight: 700;
-}
-
-.bestseller,
-.prod {
-  color: #909090;
-  font-family: "Baloo Bhai 2", sans-serif;
-}
+.arrival { font-family: "Baloo Bhai 2", sans-serif; color: black; text-decoration: underline; font-weight: 700; }
+.bestseller, .prod { color: #909090; font-family: "Baloo Bhai 2", sans-serif; cursor: pointer; }
 
 .products {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, auto);
-  gap: 50px;
+  gap: 25px;
   width: 100%;
-}
-
-
-.container {
-  justify-self: center;
-  margin-bottom: 40px;
 }
 
 .card {
-  width: 220px;
-  height: 370px;
   background-color: #F6F6F6;
   border-radius: 10px;
-  display: grid;
-  grid-template-rows: 150px auto auto auto 60px;
-  justify-items: center;
-  padding: 15px;
-}
-
-.card-img {
-  width: 100%;
-  height: 120px;
-  object-fit: contain;
-}
-
-
-.card-title {
-  font-family: "Baloo Bhai 2", sans-serif;
-  font-weight: 800;
-  font-size: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
+  min-height: 350px;
 }
 
-.card p {
-  margin-bottom: 6px;
-  font-size: 14px;
-  text-align: center;
-}
-
-.card-btn {
-  width: 100%;
-  height: 45px;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+.card-img { width: 100%; height: 130px; object-fit: contain; }
+.card-title { font-family: "Baloo Bhai 2", sans-serif; font-weight: 700; font-size: 15px; margin: 10px 0; }
+.card-price { font-weight: 800; font-size: 18px; margin: 5px 0; }
+.card-btn { width: 100%; height: 40px; background-color: black; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
 
 .popular {
-  display: flex;
-  width: 100%;
-  margin-bottom: 100px;
-}
-
-.mix-prod,
-.ipad-pro,
-.foldable,
-.mac-bro {
   display: grid;
-  grid-template-rows: 310px 20px 20px 40px;
-  grid-template-columns: 1fr;
-  gap: 55px;
-  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+}
+
+.mix-prod, .ipad-pro, .foldable, .mac-bro {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  width: 25%;
-  height: 500px;
+  text-align: center;
   background-color: #FFFFFF;
-}
-
-.ipad-pro {
-  background-color: #F9F9F9;
-}
-
-.foldable {
-  background-color: #EAEAEA;
-}
-
-.mac-bro {
-  background-color: #2C2C2C;
-}
-
-.mix-image,
-.ipad-pict,
-.foldable-img,
-.mac-bro-img {
-  width: 300px;
-  height: 300px;
-  background-color: transparent;
-}
-
-.mix-title,
-.ipad-pro-title,
-.foldable-title,
-.mac-bro-title {
-  font-family: "Baloo Bhai 2", sans-serif;
-  font-weight: 100;
-  font-size: 30px;
-}
-
-.mix-desc,
-.ipad-desc,
-.foldable-desc,
-.mac-bro-desc {
-  color: #909090;
-  margin-left: 20px;
-}
-
-.mix-btn,
-.ipad-pro-btn,
-.foldable-btn,
-.mac-btn {
-  border: 1px solid #000000;
-  border-radius: 5px;
-  height: 40px;
-  width: 60%;
-  justify-items: center;
-  justify-self: flex-start;
-  margin-left: 20px;
-  background-color: white;
-
-}
-
-.ipad-row {
-  background-color: #F9F9F9;
-  border: 15px solid #F9F9F9;
-}
-
-.foldablebtn-div {
-  border: 20px solid #EAEAEA;
-  background-color: #EAEAEA;
-}
-
-.macbro-div {
-  background-color: #2C2C2C;
-  border: 15px solid #2C2C2C;
-}
-
-.ipad-row,
-.foldablebtn-div,
-.macbro-div {
-  width: 100%;
-  display: flex;
-}
-
-.big {
-  display: flex;
-  width: 100%;
-  height: 400px;
-  background-color: #2C2C2C;
-  align-items: center;
   justify-content: space-between;
 }
 
-.play-left-img {
-  width: 320px;
-}
+.ipad-pro { background-color: #F9F9F9; }
+.foldable { background-color: #EAEAEA; }
+.mac-bro { background-color: #2C2C2C; color: white; }
 
-.right-mac-image {
-  width: 200px;
-}
-
-.main-title {
-  font-size: 50px;
-  font-weight: 100;
-  font-family: "Baloo Bhai 2", sans-serif;
-  color: white;
-  justify-self: center;
-}
-
-.main-big {
-  font-family: "Baloo Bhai 2", sans-serif;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto;
-  gap: 20px;
-  place-content: center;
-}
-
-.main-desc {
-  color: #909090;
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-.main-btn {
-  width: 150px;
-  height: 40px;
-  justify-self: center;
-  border: 1px solid white;
-  background-color: transparent;
-  color: white;
-  border-radius: 5px;
-}
-
-.main-sale {
-  font-weight: 900;
-}
-
-.site-footer {
+.mix-image, .ipad-pict, .foldable-img, .mac-bro-img {
   width: 100%;
-  height: 400px;
-  background-color: black;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.mix-title, .ipad-pro-title, .foldable-title, .mac-bro-title { font-family: "Baloo Bhai 2", sans-serif; font-size: 24px; font-weight: 600; }
+.mix-desc, .ipad-desc, .foldable-desc, .mac-bro-desc { color: #909090; font-size: 13px; margin: 10px 0; }
+
+.mix-btn, .ipad-pro-btn, .foldable-btn, .mac-btn {
+  border: 1px solid #000;
+  border-radius: 5px;
+  height: 40px;
+  width: 80%;
+  background-color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+.mac-btn { background-color: transparent; border-color: white; color: white; }
+
+/* 🚀 Big Summer Sale bloki mutlaqo xavfsiz holatga keltirildi */
+.big {
+  display: flex;
+  width: 100%;
+  height: 320px;
+  background-color: #2C2C2C;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  position: relative;
+  overflow: hidden; /* MacBook endi bu qutidan pastga sizib chiqa olmaydi! */
+}
+
+.play-left, .right-mac {
+  width: 25%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.footer-div {
-  width: 80%;
-  height: 300px;
-  background-color: black;
-  justify-self: center;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  justify-items: center;
-  align-items: start;
-
+.play-left-img, .right-mac-image { 
+  max-height: 100%; 
+  max-width: 100%;
+  object-fit: contain; 
 }
 
-.foot-first,
-.foot-second {
-  display: grid;
-  gap: 25px;
+/* Katta ekranlarda MacBook'ni sal pastroq tushirib, chetga chiroyli mixlash */
+.right-mac-image {
+  position: absolute;
+  bottom: -30px;
+  right: 20px;
+  height: 110%;
+}
+
+.main-big { width: 50%; text-align: center; color: white; z-index: 2; }
+.main-title { font-size: 40px; font-family: "Baloo Bhai 2", sans-serif; }
+.main-sale { font-weight: 900; }
+.main-desc { color: #909090; margin: 10px 0 20px 0; }
+.main-btn { width: 160px; height: 44px; border: 1px solid white; background-color: transparent; color: white; border-radius: 6px; cursor: pointer; font-weight: 600; }
+
+/* ==========================================================================
+   HOME RESPONSIVE (TABLETS & SMARTPHONES)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .devices, .popular { grid-template-columns: repeat(2, 1fr); display: grid; }
+  .macBook, .left { width: 100%; }
+  .mix-prod, .ipad-pro, .foldable, .mac-bro { width: 100%; }
+  .products { grid-template-columns: repeat(2, 1fr); }
+  .sections { grid-template-columns: repeat(3, 1fr); }
+  
+  .banner { flex-direction: column; height: auto; padding: 40px 20px; text-align: center; gap: 20px;}
+  .banner-img { height: 250px; }
+  
+  /* Planshetlarda chetdagi rasmlarni berkitish va sale bannerini markazlashtirish */
+  .play-left, .right-mac { display: none; }
+  .main-big { width: 100%; }
+  .big { justify-content: center; }
+}
+
+@media (max-width: 768px) {
+  /* 🚀 Telefon ekranlarida Playstation tekstini rasm ostiga chiroyli tushirish */
+  .playstation {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  .playstation img {
+    width: 60%;
+    margin-bottom: 10px;
+  }
+  .plays-title {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .devices, .popular { grid-template-columns: 1fr; }
+  .macBook { flex-direction: column; text-align: center; gap: 20px; }
+  .macBook img { width: 70%; }
+  .sections { grid-template-columns: repeat(2, 1fr); }
+  .products { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+}
+
+/* iPhone 12 Pro / Mini va o'ta kichik ekranlar uchun qat'iy mantiq */
+@media (max-width: 390px) {
+  .products { grid-template-columns: 1fr; }
+  .sections { grid-template-columns: repeat(2, 1fr); }
+  .banner-title h1 { font-size: 28px; }
+  .main-title { font-size: 28px; }
+  .card { min-height: 320px; }
+}
+/* 🚀 Tugmalarni o'rab turgan o'sha xalaqit berayotgan divlarni to'g'rilash */
+.ipad-row, .foldablebtn-div, .macbro-div {
+  width: 100%; /* 📐 Ichidagi tugma bemalol yoyilishi uchun */
+  display: flex;
+  justify-content: center;
   align-items: center;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
-
 }
 
-.foot-third {
-  display: grid;
-  gap: 25px;
+/* 🚀 To'rttala e'lon tugmalari uchun qat'iy to'g'ri to'rtburchak dizayn */
+.mix-btn, .ipad-pro-btn, .foldable-btn, .mac-btn {
+  display: inline-flex;
   align-items: center;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
-}
-
-.foot-first p,
-.second-opt,
-.third-opt {
-  color: #909090;
-  font-family: "Baloo Bhai 2", sans-serif;
-  font-weight: 100;
-}
-
-.first-title,
-.second-title,
-.third-title {
-  font-family: "Baloo Bhai 2", sans-serif;
+  justify-content: center;
+  border: 1px solid #000000;
+  border-radius: 8px;        /* 💅 Chetlari chiroyli yumaloq */
+  height: 48px;              /* 📏 Balandligi */
+  width: 170px !important;    /* 📐 Kvadrat bo'lib qolmasligi uchun qat'iy va ideal ENI (Pixelda) */
+  min-width: 160px;          /* ✨ Hech qanday flex uni siqib qo'ymasligi uchun zaxira kenglik */
+  background-color: transparent; 
+  color: #000000;     
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
-  color: white;
-  font-size: 20px;
+  font-size: 15px;
+  transition: all 0.3s ease; 
+  margin-top: 15px;
+  padding: 0 20px;           /* ✍️ Matn chetlariga joy */
 }
 
-.sections div:hover {
-  width: 170px;
-  height: 150px;
-  box-shadow: 0 15px 30px grey;
+/* 💻 Oxirgi qora blokdagi Macbook Pro tugmasi uchun maxsus (Oq dizayn) */
+.mac-btn {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  background-color: transparent !important;
+}
+
+/* 👥 Sichqoncha olib borilgandagi (Hover) effektlar */
+.mix-btn:hover, .ipad-pro-btn:hover, .foldable-btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+  transform: scale(1.05); /* 🚀 Chiroyli biroz kattalashish */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 💻 Macbook Pro tugmasining hover effekti */
+.mac-btn:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.25);
 }

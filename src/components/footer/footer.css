@@ -1,53 +1,57 @@
-.site-footer{
+.site-footer {
   width: 100%;
-  height: 400px;
-  background-color: black;
+  background-color: #000000;
+  padding: 60px 0;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  clear: both; /* 🚀 Tepadagi elementlar oqib kirib ketmasligi uchun majburiy tozalash */
+  position: relative;
+  z-index: 10; /* 🚀 Boshqa buzilgan rasmlar tagida qolib ketishi uchun qat'iy qatlam */
+  contain: content; /* ⚡ FPSni oshirish: Brauzer faqat footerni o'zini alohida render qiladi */
+  backface-visibility: hidden;
+  transform: translateZ(0); /* ⚡ Hardware Acceleration (GPU) */
 }
-.footer-div{
+
+.footer-div {
   width: 80%;
-  height: 300px;
-  background-color: black;
-  justify-self: center;
+  max-width: 1440px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  justify-items: center;
+  gap: 40px;
   align-items: start;
-
-}
-.foot-first ,
-.foot-second {
-  display: grid;
-  gap: 25px;
-  align-items: center;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto ;
-
-}
-.foot-third{
-  display: grid;
-  gap: 25px;
-  align-items: center;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto ;
 }
 
-.foot-first p ,
-.second-opt ,
-.third-opt{
+.foot-first, .foot-second, .foot-third {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.foot-first p, .second-opt, .third-opt {
   color: #909090;
   font-family: "Baloo Bhai 2", sans-serif;
   font-weight: 100;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-.first-title ,
-.second-title ,
-.third-title{
+.first-title, .second-title, .third-title {
   font-family: "Baloo Bhai 2", sans-serif;
   font-weight: 500;
   color: white;
   font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Footer Responsive Logic (Tablets & Smartphones / iPhone 12 Pro) */
+@media (max-width: 768px) {
+  .footer-div {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+  .site-footer {
+    padding: 40px 20px;
+  }
 }

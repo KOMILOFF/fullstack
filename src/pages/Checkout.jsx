@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import API from "../api";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = ({ items, setItems }) => {
   const [address, setAddress] = useState("");
   const [savedAddresses, setSavedAddresses] = useState([]);
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchSavedAddresses = async () => {
       const currentUserId = localStorage.getItem("userId");
       if (!currentUserId || currentUserId === "undefined") return;
       try {
-        const res = await axios.get("http://localhost:4000/api/addresses", {
+        const res = await API.get("/api/addresses", {
           params: { userId: Number(currentUserId) }
         });
         setSavedAddresses(res.data);
@@ -24,7 +23,7 @@ const Checkout = ({ items, setItems }) => {
     fetchSavedAddresses();
   }, []);
 
-const handlePlaceOrder = async () => {
+  const handlePlaceOrder = async () => {
     const currentUserId = localStorage.getItem("userId");
 
     if (!currentUserId || currentUserId === "undefined") {
@@ -32,12 +31,10 @@ const handlePlaceOrder = async () => {
       navigate("/login");
       return;
     }
-
     if (!address.trim()) {
       alert("Iltimos, yetkazib berish manzilingizni kiriting yoki tanlang!");
       return;
     }
-
     if (!items || items.length === 0) {
       alert("Savat bo'sh, buyurtma berib bo'lmaydi!");
       return;
@@ -57,18 +54,10 @@ const handlePlaceOrder = async () => {
         return;
       }
 
-      await axios.post(
-        "http://localhost:4000/api/orders",
-        { 
-          items: orderItems, 
-          address, 
-          userId: Number(currentUserId) 
-        },
-        { 
-          headers: { 
-            "Content-Type": "application/json"
-          } 
-        }
+      await API.post(
+        "/api/orders",
+        { items: orderItems, address, userId: Number(currentUserId) },
+        { headers: { "Content-Type": "application/json" } }
       );
 
       alert("Buyurtmangiz muvaffaqiyatli qabul qilindi!");
@@ -82,19 +71,19 @@ const handlePlaceOrder = async () => {
   };
 
   return (
-    <div className="Stepcontainer" style={{ marginTop: "40px" }}>
+    <div className="Stepcontainer">
       <h2>Checkout</h2>
-      <div className="step-wrapp" style={{ marginTop: "20px" }}>
+      <div className="step-wrapp">
         <div className="opt-addres">
           <h3>Yetkazib berish manzili</h3>
         </div>
 
         {savedAddresses.length > 0 && (
-          <div style={{ margin: "20px", width: "90%" }}>
-            <label style={{ fontWeight: "bold" }}>Saqlangan manzillarizdan tanlang:</label>
+          <div className="checkout-select-wrapper">
+            <label className="checkout-select-label">Saqlangan manzillarizdan tanlang:</label>
             <select 
               onChange={(e) => setAddress(e.target.value)}
-              style={{ width: "100%", padding: "10px", marginTop: "5px", borderRadius: "4px" }}
+              className="checkout-select"
               defaultValue=""
             >
               <option value="" disabled>-- Manzilni tanlang --</option>
@@ -104,7 +93,7 @@ const handlePlaceOrder = async () => {
                 </option>
               ))}
             </select>
-            <div style={{ margin: "10px 0", textAlign: "center", fontWeight: "bold" }}>YOKI</div>
+            <div className="checkout-divider">YOKI</div>
           </div>
         )}
         
@@ -115,7 +104,6 @@ const handlePlaceOrder = async () => {
             placeholder="Viloyat, shahar, ko'cha, uy raqamini qo'lda kiriting..."
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            style={{ margin: "20px", width: "90%" }}
           />
         </div>
 

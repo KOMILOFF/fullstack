@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import API from "../../api";
 import "../home/Home.css";
 
 const Smartphones = ({ addToCart, searchInput }) => {
@@ -9,7 +9,7 @@ const Smartphones = ({ addToCart, searchInput }) => {
   useEffect(() => {
     const fetchSmartphones = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/smartphones");
+        const res = await API.get("/api/smartphones");
 
         const filtered = res.data.filter(
           (item) =>

@@ -1,16 +1,21 @@
-import React from "react";
-import "../../src/index.css";
-import logo from "../assets/cyberlogo.png";
+import React, { useState } from "react";
+import logo from "../assets/cyberlogo.webp";
 import { IoIosSearch } from "react-icons/io";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaRegUser } from "react-icons/fa";
 import { SlBasket } from "react-icons/sl";
-import { FaRegUser } from "react-icons/fa";
+import { FiMenu, FiX } from "react-icons/fi"; 
 import { Link } from "react-router-dom";
 
 const Navbar = ({ cartCount, searchInput, setSearchInput }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="nav-wrapper">
-      <Link to="/">
+      <div className="mobile-menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <FiX /> : <FiMenu />}
+      </div>
+
+      <Link to="/" onClick={() => setMenuOpen(false)}>
         <img src={logo} alt="logo" />
       </Link>
 
@@ -27,7 +32,7 @@ const Navbar = ({ cartCount, searchInput, setSearchInput }) => {
 
       <nav className="navbar-nav">
         <ul className="nav-ul">
-          <li><Link to="/" style={{ color: "black" }}>Home</Link></li>
+          <li><Link to="/">Home</Link></li>
           <li>About</li>
           <li>Contact Us</li>
           <li>Blog</li>
@@ -35,37 +40,36 @@ const Navbar = ({ cartCount, searchInput, setSearchInput }) => {
       </nav>
 
       <div className="bask">
-        <p><FaRegHeart /></p>
+        <span><FaRegHeart /></span>
 
-        {/* Savat tugmasi bosilganda to'g'ri /cart sahifasiga o'tadi */}
-        <Link to="/cart" style={{ color: "black", position: "relative", cursor: "pointer", display: "flex", alignItems: "center" }}>
+        <Link to="/cart">
           <SlBasket size={22} />
-          {cartCount > 0 && (
-            <span 
-              className="card-count" 
-              style={{
-                position: "absolute",
-                top: "-10px",
-                right: "-10px",
-                backgroundColor: "black",
-                color: "white",
-                borderRadius: "50%",
-                padding: "2px 6px",
-                fontSize: "12px"
-              }}
-            >
-              {cartCount}
-            </span>
-          )}
+          {cartCount > 0 && <span className="card-count">{cartCount}</span>}
         </Link>
 
-        <p style={{ cursor: "pointer" }}>
-          <Link to="/profile" style={{ color: "black" }}>
-            <FaRegUser />
-          </Link>
-        </p>
+        <Link to="/profile">
+          <FaRegUser />
+        </Link>
       </div>
-      <hr />
+
+      <div className={`mobile-nav-menu ${menuOpen ? "active" : ""}`}>
+        <div className="nav-inp-mobile">
+          <IoIosSearch className="sr-icon" />
+          <input 
+            type="text" 
+            placeholder="Search..." 
+            className="sr-inp" 
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+          />
+        </div>
+        <ul>
+          <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+          <li onClick={() => setMenuOpen(false)}>About</li>
+          <li onClick={() => setMenuOpen(false)}>Contact Us</li>
+          <li onClick={() => setMenuOpen(false)}>Blog</li>
+        </ul>
+      </div>
     </div>
   );
 };

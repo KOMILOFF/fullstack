@@ -1,6 +1,6 @@
-import "../login/login.css";
+import "./login.css";
 import React, { useState } from "react";
-import axios from "axios";
+import API from "../../api"; 
 
 const Login = ({ setSignet }) => {
   const [isLogin, setIsLogin] = useState(true);
@@ -16,7 +16,8 @@ const Login = ({ setSignet }) => {
         ? { email, password } 
         : { name, email, password };
 
-      const res = await axios.post(`http://localhost:4000/api/auth/${endpoint}`, requestData);
+
+      const res = await API.post(`/api/auth/${endpoint}`, requestData);
       
       if (isLogin) {
         if (res.data.token) {

@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
-import axios from "axios";
-import "../home/Home.css";
-import iph from "../../assets/cyberhome.png";
-import plays from "../../assets/PlayStation.png";
-import pods from "../../assets/airpodmax.png";
-import vis from "../../assets/aplevis.png";
-import mak from "../../assets/mak.png";
-import mix from "../../assets/mix.png";
-import ipad64 from "../../assets/image 64.png";
-import fold from "../../assets/image 41.png";
-import mac from "../../assets/macbuk.png";
+import API from "../../api"; 
+import "./Home.css"; // CSS fayli alohida ulandi
+import iph from "../../assets/cyberhome.webp";
+import plays from "../../assets/PlayStation.webp";
+import pods from "../../assets/airpodmax.webp";
+import vis from "../../assets/aplevis.webp";
+import mak from "../../assets/mak.webp";
+import mix from "../../assets/mix.webp";
+import ipad64 from "../../assets/image 64.webp";
+import fold from "../../assets/image 41.webp";
+import mac from "../../assets/macbuk.webp";
 import { PiBracketsAngleBold } from "react-icons/pi";
 import { SlScreenSmartphone } from "react-icons/sl";
 import { BsSmartwatch } from "react-icons/bs";
@@ -25,7 +25,7 @@ const Home = ({ homeProducts, setHomeProducts, addToCart, searchInput }) => {
   useEffect(() => {
     const fetchSmartphones = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/smartphones");
+        const res = await API.get("/api/smartphones");
         setHomeProducts(res.data);
       } catch (err) {
         console.error("Xatolik yuz berdi:", err);
@@ -36,9 +36,7 @@ const Home = ({ homeProducts, setHomeProducts, addToCart, searchInput }) => {
 
   const filterByCategoryOnHome = async (categoryName) => {
     try {
-      const res = await axios.get(
-        `http://localhost:4000/api/search?category=${categoryName}`
-      );
+      const res = await API.get(`/api/search?category=${categoryName}`);
       setHomeProducts(res.data);
     } catch (err) {
       console.error("Kategoriyani filtrlashda xatolik:", err);
@@ -48,7 +46,7 @@ const Home = ({ homeProducts, setHomeProducts, addToCart, searchInput }) => {
   const isSearching = searchInput && searchInput.trim() !== "";
 
   return (
-    <div>
+    <div className="home-page-container">
       {!isSearching && (
         <>
           <div className="banner">
@@ -112,10 +110,7 @@ const Home = ({ homeProducts, setHomeProducts, addToCart, searchInput }) => {
         </>
       )}
 
-      <div
-        className="container"
-        style={isSearching ? { marginTop: "40px" } : {}}
-      >
+      <div className="container" style={isSearching ? { marginTop: "40px" } : {}}>
         {!isSearching && (
           <div className="category">
             <div className="cate-title">
@@ -123,64 +118,33 @@ const Home = ({ homeProducts, setHomeProducts, addToCart, searchInput }) => {
               <PiBracketsAngleBold className="cate-icon" />
             </div>
             <div className="sections">
-              <div
-                className="phone-sect"
-                onClick={() => navigate("/smartphones")}
-                style={{ cursor: "pointer" }}
-              >
-                <p className="sect-icon">
-                  <SlScreenSmartphone />
-                </p>
+              <div className="phone-sect" onClick={() => navigate("/smartphones")}>
+                <p className="sect-icon"><SlScreenSmartphone /></p>
                 <p id="sec-nic">Phones</p>
               </div>
 
-              <div
-                onClick={() => filterByCategoryOnHome("Smartwatches")}
-                style={{ cursor: "pointer" }}
-              >
-                <p className="sect-icon">
-                  <BsSmartwatch />
-                </p>
+              <div onClick={() => filterByCategoryOnHome("Smartwatches")}>
+                <p className="sect-icon"><BsSmartwatch /></p>
                 <p id="sec-nic">Smartwatches</p>
               </div>
 
-              <div
-                onClick={() => filterByCategoryOnHome("Cameras")}
-                style={{ cursor: "pointer" }}
-              >
-                <p className="sect-icon">
-                  <IoCameraOutline />
-                </p>
+              <div onClick={() => filterByCategoryOnHome("Cameras")}>
+                <p className="sect-icon"><IoCameraOutline /></p>
                 <p id="sec-nic">Cameras</p>
               </div>
 
-              <div
-                onClick={() => filterByCategoryOnHome("Headphones")}
-                style={{ cursor: "pointer" }}
-              >
-                <p className="sect-icon">
-                  <FiHeadphones />
-                </p>
+              <div onClick={() => filterByCategoryOnHome("Headphones")}>
+                <p className="sect-icon"><FiHeadphones /></p>
                 <p id="sec-nic">Headphones</p>
               </div>
 
-              <div
-                onClick={() => filterByCategoryOnHome("Computers")}
-                style={{ cursor: "pointer" }}
-              >
-                <p className="sect-icon">
-                  <FaComputer />
-                </p>
+              <div onClick={() => filterByCategoryOnHome("Computers")}>
+                <p className="sect-icon"><FaComputer /></p>
                 <p id="sec-nic">Computers</p>
               </div>
 
-              <div
-                onClick={() => filterByCategoryOnHome("Gaming")}
-                style={{ cursor: "pointer" }}
-              >
-                <p className="sect-icon">
-                  <LuGamepad />
-                </p>
+              <div onClick={() => filterByCategoryOnHome("Gaming")}>
+                <p className="sect-icon"><LuGamepad /></p>
                 <p id="sec-nic">Gaming</p>
               </div>
             </div>
@@ -189,11 +153,8 @@ const Home = ({ homeProducts, setHomeProducts, addToCart, searchInput }) => {
 
         <div className="new-sections">
           <span className="arrival">
-            {isSearching
-              ? `Qidiruv natijalari ("${searchInput}")`
-              : "New Arrival"}
+            {isSearching ? `Qidiruv natijalari ("${searchInput}")` : "New Arrival"}
           </span>
-
           {!isSearching && (
             <>
               <span className="bestseller">Bestseller</span>
@@ -204,34 +165,18 @@ const Home = ({ homeProducts, setHomeProducts, addToCart, searchInput }) => {
 
         <div className="products">
           {homeProducts.length === 0 ? (
-            <div
-              style={{
-                width: "100%",
-                padding: "40px 0",
-                textAlign: "center",
-                gridColumn: "1/-1",
-              }}
-            >
+            <div style={{ width: "100%", padding: "40px 0", textAlign: "center", gridColumn: "1/-1" }}>
               <h3>Hech narsa topilmadi 🔍</h3>
             </div>
           ) : (
             homeProducts.map((item) => (
               <div key={item.id} className="card">
-                <img
-                  src={item.image || iph}
-                  alt="product"
-                  className="card-img"
-                />
+                <img src={item.image || iph} alt="product" className="card-img" />
                 <h2 className="card-title">{item.name || item.title}</h2>
-                <p>
-                  {item.memory} {item.color}
-                </p>
+                <p>{item.memory} {item.color}</p>
                 <p className="card-price">{item.price}$</p>
-                <p>{item.category}</p>
-                <button
-                  className="card-btn"
-                  onClick={() => addToCart(item)}
-                >
+                <p style={{ color: 'gray', fontSize: '12px' }}>{item.category}</p>
+                <button className="card-btn" onClick={() => addToCart(item)}>
                   Buy Now
                 </button>
               </div>
@@ -247,8 +192,7 @@ const Home = ({ homeProducts, setHomeProducts, addToCart, searchInput }) => {
               <img className="mix-image" src={mix} alt="mix" />
               <h2 className="mix-title">Popular Products</h2>
               <p className="mix-desc">
-                iPad combines a magnificent 10.2-inch Retina display,
-                incredible performance, multitasking and ease of use.
+                iPad combines a magnificent 10.2-inch Retina display...
               </p>
               <button className="mix-btn">Shop Now</button>
             </div>
@@ -257,8 +201,7 @@ const Home = ({ homeProducts, setHomeProducts, addToCart, searchInput }) => {
               <img src={ipad64} alt="ipad pro" className="ipad-pict" />
               <h2 className="ipad-pro-title">Ipad Pro</h2>
               <p className="ipad-desc">
-                iPad combines a magnificent 10.2-inch Retina display,
-                incredible performance, multitasking and ease of use.
+                iPad combines a magnificent 10.2-inch Retina display...
               </p>
               <div className="ipad-row">
                 <button className="ipad-pro-btn">Shop Now</button>
@@ -266,15 +209,10 @@ const Home = ({ homeProducts, setHomeProducts, addToCart, searchInput }) => {
             </div>
 
             <div className="foldable">
-              <img
-                src={fold}
-                alt="samsung galaxy Zfold"
-                className="foldable-img"
-              />
+              <img src={fold} alt="samsung galaxy Zfold" className="foldable-img" />
               <h2 className="foldable-title">Samsung Galaxy</h2>
               <p className="foldable-desc">
-                iPad combines a magnificent 10.2-inch Retina display,
-                incredible performance, multitasking and ease of use.
+                iPad combines a magnificent 10.2-inch Retina display...
               </p>
               <div className="foldablebtn-div">
                 <button className="foldable-btn">Shop Now</button>
@@ -285,8 +223,7 @@ const Home = ({ homeProducts, setHomeProducts, addToCart, searchInput }) => {
               <img src={mac} alt="Macbook Pro" className="mac-bro-img" />
               <h2 className="mac-bro-title">Macbook Pro</h2>
               <p className="mac-bro-desc">
-                iPad combines a magnificent 10.2-inch Retina display,
-                incredible performance, multitasking and ease of use.
+                iPad combines a magnificent 10.2-inch Retina display...
               </p>
               <div className="macbro-div">
                 <button className="mac-btn">Shop Now</button>
@@ -296,23 +233,17 @@ const Home = ({ homeProducts, setHomeProducts, addToCart, searchInput }) => {
 
           <div className="big">
             <div className="play-left">
-              <img
-                src={plays}
-                alt="playstation"
-                className="play-left-img"
-              />
+              <img src={plays} alt="playstation" className="play-left-img" />
             </div>
-
             <div className="main-big">
               <span className="main-title">
-                Big Summer <p className="main-sale">Sale</p>
+                Big Summer <span className="main-sale">Sale</span>
               </span>
               <p className="main-desc">
                 Commodo fames vitae vitae leo mauris in. Eu consequat.
               </p>
               <button className="main-btn">Shop Now</button>
             </div>
-
             <div className="right-mac">
               <img src={mak} alt="mac" className="right-mac-image" />
             </div>
